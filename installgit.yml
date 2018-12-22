@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+  - name: des install git
+    apt:
+      name: git
+      state: present
+  - name: des install tree
+    apt:
+      name: tree
+      state: present
+    
+  

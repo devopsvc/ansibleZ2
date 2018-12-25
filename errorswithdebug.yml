@@ -6,7 +6,7 @@
     yum:
       namee: git
       state: present
-      ignore_errors: yes
+    ignore_errors: yes
 
   - name: install tree 2
     yum:

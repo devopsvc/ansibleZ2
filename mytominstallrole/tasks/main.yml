@@ -24,4 +24,10 @@
   notify: starttomcat
   
 
+- name: deploy mahalogin java application on tomcat webapps folder
+  get_url:
+    url: https://s3-ap-southeast-1.amazonaws.com/mypem04056/MAHALogin.war
+    dest: /usr/share/tomcat/webapps/
+    force_basic_auth: yes
+  notify: restarttomcat
 

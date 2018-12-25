@@ -6,18 +6,20 @@
   - name: install webserver on redhat
     yum:
       name: httpd
-  - name: start webserver on redhat
-    service:
-      name: httpd
-      state: started  
+    notify: startwebserver
+
 
   - name: copy index.html into webserver
     template:
       src: index.j2
       dest: /var/www/html/index.html
+    notify: startwebserver
+ 
 
-  - name: restart webserver 
+
+  handlers:
+  - name: startwebserver
     service:
       name: httpd
-      state: restarted
+      state: started  
 

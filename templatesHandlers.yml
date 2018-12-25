@@ -1,0 +1,23 @@
+---
+- hosts: redhatos
+  become: yes
+  tasks:
+  - include_tasks: myfile.yml
+  - name: install webserver on redhat
+    yum:
+      name: httpd
+  - name: start webserver on redhat
+    service:
+      name: httpd
+      state: started  
+
+  - name: copy index.html into webserver
+    template:
+      src: index.j2
+      dest: /var/www/html/index.html
+
+  - name: restart webserver 
+    service:
+      name: httpd
+      state: restarted
+

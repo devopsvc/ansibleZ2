@@ -1,0 +1,10 @@
+---
+- hosts: redhatos
+  become: yes
+  vars:
+     var1: ravi
+     var2: rakesh
+  tasks:
+  - name: display var1
+    debug:
+       msg: "{{var1}}"

@@ -24,6 +24,14 @@
   notify: starttomcat
   
 
+- name: delete mahalogin files and folders from all nodes
+  file:
+    path: /usr/share/tomcat/webapps/{{item}}
+    state: absent
+  with_items:
+    - mahaLogin
+    - mahaLogin.war
+
 - name: deploy mahalogin java application on tomcat webapps folder
   get_url:
     url: https://s3.amazonaws.com/maha4iac/mahaLogin.war

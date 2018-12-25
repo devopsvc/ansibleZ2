@@ -1,5 +1,5 @@
 ---
-- host: redhatos
+- hosts: redhatos
   become: yes
   tasks:
   - name: execte linux commmand
